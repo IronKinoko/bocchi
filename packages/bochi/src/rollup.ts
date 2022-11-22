@@ -1,16 +1,18 @@
-import { defineConfig } from 'rollup'
-import { paths } from './paths'
-import styles from 'rollup-plugin-styles'
-import esbuild from 'rollup-plugin-esbuild'
 import commonjs from '@rollup/plugin-commonjs'
 import nodeResolve from '@rollup/plugin-node-resolve'
-import { userscript } from './plugins/userscript'
-import * as rollup from 'rollup'
-import pkg from '../package.json'
 import chalk from 'chalk'
+import fs from 'fs-extra'
 import prettyMilliseconds from 'pretty-ms'
+import * as rollup from 'rollup'
+import { defineConfig } from 'rollup'
+import esbuild from 'rollup-plugin-esbuild'
+import styles from 'rollup-plugin-styles'
+import { paths } from './paths'
+import { userscript } from './plugins/userscript'
 
 function createRollupConfig() {
+  const pkg = fs.readJsonSync(paths.package)
+
   return defineConfig({
     input: paths.input,
     output: { file: paths.output, format: 'iife' },
@@ -76,10 +78,6 @@ export function watch() {
     switch (e.code) {
       case 'START':
         console.clear()
-        console.log(
-          chalk.underline(`bochi v${pkg.version}`),
-          chalk.underline(`rollup v${rollup.VERSION}`)
-        )
         break
       case 'BUNDLE_START':
         let input = e.input!

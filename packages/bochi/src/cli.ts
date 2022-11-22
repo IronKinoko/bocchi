@@ -3,7 +3,7 @@
 import yargs from 'yargs'
 import bochi from './index'
 
-yargs
+yargs(process.argv.slice(2))
   .usage('A cli build tool for userscript')
   .showHelpOnFail(true)
   .demandCommand(1, '')

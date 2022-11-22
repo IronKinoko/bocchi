@@ -6,7 +6,9 @@ function resolveMeta() {
   let meta = fs.readFileSync(paths.meta, 'utf-8')
   const pkg = fs.readJsonSync(paths.package)
 
-  meta = meta.replace(/#version#/g, pkg.version).replace(/#description#/g, pkg.description)
+  meta = meta.replace(/#version#/g, pkg.version)
+  .replace(/#description#/g, pkg.description)
+  .replace(/#homepage#/g, pkg.homepage)
 
   return meta
 }

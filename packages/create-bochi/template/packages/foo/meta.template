@@ -1,0 +1,12 @@
+// ==UserScript==
+// @name         e-hentai-infinite-scroll
+// @namespace    #homepage#
+// @version      #version#
+// @description  #description#
+// @author       IronKinoko
+// @match        https://e-hentai.org/*
+// @match        https://exhentai.org/*
+// @grant        none
+// @downloadURL  
+// @updateURL    
+// ==/UserScript==

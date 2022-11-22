@@ -2,19 +2,42 @@
   "name": "create-bochi",
   "description": "create bochi template",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": "./dist/index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/IronKinoko/bochi.git"
+    "url": "git+https://github.com/IronKinoko/bochi.git",
+    "directory": "packages/create-bochi"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "files": [
+    "dist",
+    "template"
+  ],
+  "keywords": [
+    "template",
+    "bochi",
+    "userscript",
+    "cli",
+    "greasemonkey",
+    "tampermonkey",
+    "violentmonkey"
+  ],
+  "author": "IronKinoko <kinoko_main@outlook.com>",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/IronKinoko/bochi/issues"
   },
-  "homepage": "https://github.com/IronKinoko/bochi#readme"
+  "homepage": "https://github.com/IronKinoko/bochi#readme",
+  "devDependencies": {
+    "@types/node": "^18.11.9"
+  }
 }
