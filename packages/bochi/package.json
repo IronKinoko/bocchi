@@ -1,12 +1,12 @@
 {
   "name": "bochi",
   "description": "A cli build tool for userscript",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "type": "module",
   "scripts": {
-    "build": "tsc",
+    "build": "tsup src/index.ts src/cli.ts --format esm --dts --clean",
     "release": "pnpm run build && npm publish",
     "lint": "tsc --noEmit"
   },
