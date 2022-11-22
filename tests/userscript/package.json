@@ -1,0 +1,11 @@
+{
+  "name": "test-app",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "esno ../../packages/bochi/src/cli.ts dev",
+    "build": "esno ../../packages/bochi/src/cli.ts build"
+  },
+  "globals": {
+    "xs": "xx"
+  }
+}

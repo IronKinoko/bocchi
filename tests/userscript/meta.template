@@ -1,0 +1,10 @@
+// ==UserScript==
+// @name         test-app
+// @namespace    https://github.com/IronKinoko/bochi
+// @version      #version#
+// @description  #description#
+// @author       IronKinoko
+// @match        https://e-hentai.org/*
+// @match        https://exhentai.org/*
+// @grant        none
+// ==/UserScript==
