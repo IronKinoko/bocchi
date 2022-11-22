@@ -35,7 +35,6 @@ importers:
       rollup: ^3.3.0
       rollup-plugin-esbuild: ^5.0.0
       rollup-plugin-styles: ^4.0.0
-      sass: ^1.56.1
       yargs: ^17.6.2
     dependencies:
       "@rollup/plugin-commonjs": 23.0.2_rollup@3.3.0
@@ -50,7 +49,6 @@ importers:
       rollup: 3.3.0
       rollup-plugin-esbuild: 5.0.0_j4iy4sygz62mwuyziquvx65lpa
       rollup-plugin-styles: 4.0.0_rollup@3.3.0
-      sass: 1.56.1
       yargs: 17.6.2
 
   packages/create-bochi:
@@ -418,6 +416,7 @@ packages:
     dependencies:
       normalize-path: 3.0.0
       picomatch: 2.3.1
+    dev: true
 
   /array-differ/3.0.0:
     resolution:
@@ -490,6 +489,7 @@ packages:
         integrity: sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==,
       }
     engines: { node: ">=8" }
+    dev: true
 
   /boolbase/1.0.0:
     resolution:
@@ -525,6 +525,7 @@ packages:
     engines: { node: ">=8" }
     dependencies:
       fill-range: 7.0.1
+    dev: true
 
   /browserslist/4.21.4:
     resolution:
@@ -650,6 +651,7 @@ packages:
       readdirp: 3.6.0
     optionalDependencies:
       fsevents: 2.3.2
+    dev: true
 
   /clean-stack/2.2.0:
     resolution:
@@ -1490,6 +1492,7 @@ packages:
     engines: { node: ">=8" }
     dependencies:
       to-regex-range: 5.0.1
+    dev: true
 
   /filter-obj/1.1.0:
     resolution:
@@ -1627,6 +1630,7 @@ packages:
     engines: { node: ">= 6" }
     dependencies:
       is-glob: 4.0.3
+    dev: true
 
   /glob/7.1.6:
     resolution:
@@ -1784,13 +1788,6 @@ packages:
     engines: { node: ">= 4" }
     dev: true
 
-  /immutable/4.1.0:
-    resolution:
-      {
-        integrity: sha512-oNkuqVTA8jqG1Q6c+UglTOD1xhC1BtjKI7XkCXRkZHrN5m18/XsnUp8Q89GkQO/z+0WjonSvl0FLhDYftp46nQ==,
-      }
-    dev: false
-
   /import-fresh/3.3.0:
     resolution:
       {
@@ -1840,6 +1837,7 @@ packages:
     engines: { node: ">=8" }
     dependencies:
       binary-extensions: 2.2.0
+    dev: true
 
   /is-builtin-module/3.2.0:
     resolution:
@@ -1866,6 +1864,7 @@ packages:
         integrity: sha512-SbKbANkN603Vi4jEZv49LeVJMn4yGwsbzZworEoyEiutsN3nJYdbO36zfhGJ6QEDpOZIFkDtnq5JRxmvl3jsoQ==,
       }
     engines: { node: ">=0.10.0" }
+    dev: true
 
   /is-fullwidth-code-point/3.0.0:
     resolution:
@@ -1890,6 +1889,7 @@ packages:
     engines: { node: ">=0.10.0" }
     dependencies:
       is-extglob: 2.1.1
+    dev: true
 
   /is-module/1.0.0:
     resolution:
@@ -1904,6 +1904,7 @@ packages:
         integrity: sha512-41Cifkg6e8TylSpdtTpeLVMqvSBEVzTttHvERD741+pnZ8ANv0004MRL43QKPDlK9cGvNp6NZWZUBlbGXYxxng==,
       }
     engines: { node: ">=0.12.0" }
+    dev: true
 
   /is-reference/1.2.1:
     resolution:
@@ -2288,6 +2289,7 @@ packages:
         integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==,
       }
     engines: { node: ">=0.10.0" }
+    dev: true
 
   /normalize-url/6.1.0:
     resolution:
@@ -3129,6 +3131,7 @@ packages:
     engines: { node: ">=8.10.0" }
     dependencies:
       picomatch: 2.3.1
+    dev: true
 
   /require-directory/2.1.1:
     resolution:
@@ -3270,19 +3273,6 @@ packages:
     dependencies:
       tslib: 2.4.1
     dev: true
-
-  /sass/1.56.1:
-    resolution:
-      {
-        integrity: sha512-VpEyKpyBPCxE7qGDtOcdJ6fFbcpOM+Emu7uZLxVrkX8KVU/Dp5UF7WLvzqRuUhB6mqqQt1xffLoG+AndxTZrCQ==,
-      }
-    engines: { node: ">=12.0.0" }
-    hasBin: true
-    dependencies:
-      chokidar: 3.5.3
-      immutable: 4.1.0
-      source-map-js: 1.0.2
-    dev: false
 
   /semver/6.3.0:
     resolution:
@@ -3611,6 +3601,7 @@ packages:
     engines: { node: ">=8.0" }
     dependencies:
       is-number: 7.0.0
+    dev: true
 
   /tr46/1.0.1:
     resolution:
