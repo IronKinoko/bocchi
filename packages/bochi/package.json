@@ -52,7 +52,6 @@
     "rollup": "^3.3.0",
     "rollup-plugin-esbuild": "^5.0.0",
     "rollup-plugin-styles": "^4.0.0",
-    "sass": "^1.56.1",
     "yargs": "^17.6.2"
   }
 }
