@@ -2,7 +2,7 @@ import commonjs from '@rollup/plugin-commonjs'
 import nodeResolve from '@rollup/plugin-node-resolve'
 import chalk from 'chalk'
 import fs from 'fs-extra'
-import path from 'path'
+import image from '@rollup/plugin-image'
 import prettyMilliseconds from 'pretty-ms'
 import * as rollup from 'rollup'
 import { defineConfig } from 'rollup'
@@ -21,6 +21,7 @@ function createRollupConfig() {
     output: { file: paths.output, format: 'iife' },
     plugins: [
       styles({ sass: { impl: require.resolve('sass') } }),
+      image(),
       esbuild({
         target: 'es2017',
         define: {

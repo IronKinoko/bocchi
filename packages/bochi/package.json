@@ -1,7 +1,7 @@
 {
   "name": "bochi",
   "description": "A cli build tool for userscript",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "type": "module",
@@ -51,10 +51,10 @@
     "rollup-plugin-esbuild": "^5.0.0",
     "rollup-plugin-styles": "^4.0.0",
     "sass": "^1.56.1",
-    "yargs": "^17.6.2"
+    "yargs": "^17.6.2",
+    "@types/node": "^18.11.9"
   },
   "devDependencies": {
-    "@types/node": "^18.11.9",
     "@types/fs-extra": "^9.0.13",
     "@types/yargs": "^17.0.13"
   }
