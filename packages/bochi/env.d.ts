@@ -8,11 +8,6 @@ declare namespace NodeJS {
   }
 }
 
-declare module '*.bmp' {
-  const src: string
-  export default src
-}
-
 declare module '*.gif' {
   const src: string
   export default src
@@ -34,16 +29,6 @@ declare module '*.png' {
 }
 
 declare module '*.webp' {
-  const src: string
-  export default src
-}
-
-declare module '*.scss' {
-  const src: string
-  export default src
-}
-
-declare module '*.sass' {
   const src: string
   export default src
 }
