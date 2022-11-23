@@ -6,9 +6,10 @@ function resolveMeta() {
   let meta = fs.readFileSync(paths.meta, 'utf-8')
   const pkg = fs.readJsonSync(paths.package)
 
-  meta = meta.replace(/#version#/g, pkg.version)
-  .replace(/#description#/g, pkg.description)
-  .replace(/#homepage#/g, pkg.homepage)
+  meta = meta
+    .replace(/#version#/g, pkg.version)
+    .replace(/#description#/g, pkg.description)
+    .replace(/#homepage#/g, pkg.homepage)
 
   return meta
 }
@@ -16,7 +17,10 @@ function resolveMeta() {
 function genDevFile(meta: string) {
   const devMeta = meta
     .replace(/(@name.*)/, '$1 - Dev')
-    .replace(/(\/\/ ==\/UserScript==.*)/, `// @require      file://${paths.output}\n$1`)
+    .replace(
+      /(\/\/ ==\/UserScript==.*)/,
+      `// @require      file://${paths.output}\n$1`
+    )
 
   fs.ensureFileSync(paths.outputDev)
   fs.writeFileSync(paths.outputDev, devMeta)
