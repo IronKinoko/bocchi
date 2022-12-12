@@ -23,6 +23,7 @@ importers:
 
   packages/bochi:
     specifiers:
+      '@ironkinoko/rollup-plugin-styles': ^4.0.0
       '@rollup/plugin-commonjs': ^23.0.2
       '@rollup/plugin-image': ^3.0.1
       '@rollup/plugin-node-resolve': ^15.0.1
@@ -35,10 +36,10 @@ importers:
       pretty-ms: ^8.0.0
       rollup: ^3.3.0
       rollup-plugin-esbuild: ^5.0.0
-      rollup-plugin-styles: ^4.0.0
       sass: ^1.56.1
       yargs: ^17.6.2
     dependencies:
+      '@ironkinoko/rollup-plugin-styles': 4.0.0_rollup@3.3.0
       '@rollup/plugin-commonjs': 23.0.2_rollup@3.3.0
       '@rollup/plugin-image': 3.0.1_rollup@3.3.0
       '@rollup/plugin-node-resolve': 15.0.1_rollup@3.3.0
@@ -49,7 +50,6 @@ importers:
       pretty-ms: 8.0.0
       rollup: 3.3.0
       rollup-plugin-esbuild: 5.0.0_j4iy4sygz62mwuyziquvx65lpa
-      rollup-plugin-styles: 4.0.0_rollup@3.3.0
       sass: 1.56.1
       yargs: 17.6.2
     devDependencies:
@@ -145,6 +145,36 @@ packages:
     requiresBuild: true
     optional: true
 
+  /@ironkinoko/rollup-plugin-styles/4.0.0_rollup@3.3.0:
+    resolution:
+      {
+        integrity: sha512-400jlo4qQNATM016bdcIcOu/3b3nYy7mphCXmo8YX4MwAxrgSAbFkqts8Hmvfw2paN0dXGr/whPLGyaPNM2nAA==,
+      }
+    engines: { node: ^12.20.0 || ^14.13.1 || >=16.0.0 }
+    peerDependencies:
+      rollup: ^2.63.0 || 3.x
+    dependencies:
+      '@rollup/pluginutils': 5.0.2_rollup@3.3.0
+      cosmiconfig: 7.1.0
+      cssnano: 5.1.14_postcss@8.4.19
+      fs-extra: 10.1.0
+      icss-utils: 5.1.0_postcss@8.4.19
+      mime-types: 2.1.35
+      p-queue: 6.6.2
+      postcss: 8.4.19
+      postcss-modules-extract-imports: 3.0.0_postcss@8.4.19
+      postcss-modules-local-by-default: 4.0.0_postcss@8.4.19
+      postcss-modules-scope: 3.0.0_postcss@8.4.19
+      postcss-modules-values: 4.0.0_postcss@8.4.19
+      postcss-value-parser: 4.2.0
+      query-string: 7.1.1
+      resolve: 1.22.1
+      resolve.exports: 1.1.0
+      rollup: 3.3.0
+      source-map-js: 1.0.2
+      tslib: 2.4.1
+    dev: false
+
   /@nodelib/fs.scandir/2.1.5:
     resolution:
       {
@@ -234,17 +264,6 @@ packages:
       rollup: 3.3.0
     dev: false
 
-  /@rollup/pluginutils/4.2.1:
-    resolution:
-      {
-        integrity: sha512-iKnFXr7NkdZAIHiIWE+BX5ULi/ucVFYWD6TbAV+rZctiRTY2PL6tsIKhoIOaoskiWAkgu+VsbXgUVDNLHf+InQ==,
-      }
-    engines: { node: '>= 8.0.0' }
-    dependencies:
-      estree-walker: 2.0.2
-      picomatch: 2.3.1
-    dev: false
-
   /@rollup/pluginutils/5.0.2_rollup@3.3.0:
     resolution:
       {
@@ -269,18 +288,6 @@ packages:
         integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==,
       }
     engines: { node: '>=10.13.0' }
-    dev: false
-
-  /@types/cssnano/5.1.0_postcss@8.4.19:
-    resolution:
-      {
-        integrity: sha512-ikR+18UpFGgvaWSur4og6SJYF/6QEYHXvrIt36dp81p1MG3cAPTYDMBJGeyWa3LCnqEbgNMHKRb+FP0NrXtoWQ==,
-      }
-    deprecated: This is a stub types definition. cssnano provides its own type definitions, so you do not need this installed.
-    dependencies:
-      cssnano: 5.1.14_postcss@8.4.19
-    transitivePeerDependencies:
-      - postcss
     dev: false
 
   /@types/estree/1.0.0:
@@ -3157,6 +3164,14 @@ packages:
     engines: { node: '>=8' }
     dev: true
 
+  /resolve.exports/1.1.0:
+    resolution:
+      {
+        integrity: sha512-J1l+Zxxp4XK3LUDZ9m60LRJF/mAe4z6a4xyabPHk7pvK5t35dACV32iIjJDFeWZFfZlO29w6SZ67knR0tHzJtQ==,
+      }
+    engines: { node: '>=10' }
+    dev: false
+
   /resolve/1.22.1:
     resolution:
       {
@@ -3214,36 +3229,6 @@ packages:
       rollup: 3.3.0
     transitivePeerDependencies:
       - supports-color
-    dev: false
-
-  /rollup-plugin-styles/4.0.0_rollup@3.3.0:
-    resolution:
-      {
-        integrity: sha512-A2K2sao84OsTmDxXG83JTCdXWrmgvQkkI38XDat46rdtpGMRm9tSYqeCdlwwGDJF4kKIafhV1mUidqu8MxUGig==,
-      }
-    engines: { node: ^12.20.0 || ^14.13.1 || >=16.0.0 }
-    peerDependencies:
-      rollup: ^2.63.0
-    dependencies:
-      '@rollup/pluginutils': 4.2.1
-      '@types/cssnano': 5.1.0_postcss@8.4.19
-      cosmiconfig: 7.1.0
-      cssnano: 5.1.14_postcss@8.4.19
-      fs-extra: 10.1.0
-      icss-utils: 5.1.0_postcss@8.4.19
-      mime-types: 2.1.35
-      p-queue: 6.6.2
-      postcss: 8.4.19
-      postcss-modules-extract-imports: 3.0.0_postcss@8.4.19
-      postcss-modules-local-by-default: 4.0.0_postcss@8.4.19
-      postcss-modules-scope: 3.0.0_postcss@8.4.19
-      postcss-modules-values: 4.0.0_postcss@8.4.19
-      postcss-value-parser: 4.2.0
-      query-string: 7.1.1
-      resolve: 1.22.1
-      rollup: 3.3.0
-      source-map-js: 1.0.2
-      tslib: 2.4.1
     dev: false
 
   /rollup/3.3.0:
