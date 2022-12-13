@@ -32,3 +32,7 @@ declare module '*.webp' {
   const src: string
   export default src
 }
+declare module '*.template.html' {
+  const templateHTML: Record<string, string>
+  export default templateHTML
+}

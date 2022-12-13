@@ -1,27 +1,28 @@
+import styles from '@ironkinoko/rollup-plugin-styles'
 import commonjs from '@rollup/plugin-commonjs'
+import image from '@rollup/plugin-image'
 import nodeResolve from '@rollup/plugin-node-resolve'
 import chalk from 'chalk'
 import fs from 'fs-extra'
-import image from '@rollup/plugin-image'
+import { createRequire } from 'module'
 import prettyMilliseconds from 'pretty-ms'
 import * as rollup from 'rollup'
-import { defineConfig } from 'rollup'
 import esbuild from 'rollup-plugin-esbuild'
-import styles from '@ironkinoko/rollup-plugin-styles'
 import { paths } from './paths'
+import { template } from './plugins/template'
 import { userscript } from './plugins/userscript'
-import { createRequire } from 'module'
 
 function createRollupConfig() {
   const pkg = fs.readJsonSync(paths.package)
 
   const require = createRequire(import.meta.url)
-  return defineConfig({
+  return rollup.defineConfig({
     input: paths.input,
     output: { file: paths.output, format: 'iife' },
     plugins: [
       styles({ sass: { impl: require.resolve('sass') } }),
       image(),
+      template(),
       esbuild({
         target: 'es2017',
         define: {
