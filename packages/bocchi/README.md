@@ -1,4 +1,4 @@
-# bochi
+# bocchi
 
 A cli build tool for userscript
 
@@ -6,26 +6,26 @@ A cli build tool for userscript
 
 ```shell
 # npm
-npm i bochi -D
+npm i bocchi -D
 
 # yarn
-yarn add bochi -D
+yarn add bocchi -D
 
 # pnpm
-pnpm i bochi -D
+pnpm i bocchi -D
 ```
 
 ### Create with template
 
 ```shell
 # npm
-npm create bochi <name>
+npm create bocchi-app <name>
 
 # yarn
-yarn create bochi <name>
+yarn create bocchi-app <name>
 
 # pnpm
-pnpm create bochi <name>
+pnpm create bocchi-app <name>
 ```
 
 ## Usage
@@ -52,8 +52,8 @@ pnpm create bochi <name>
 ```json
 {
   "scripts": {
-    "dev": "bochi dev",
-    "build": "bochi build"
+    "dev": "bocchi dev",
+    "build": "bocchi build"
   }
 }
 ```

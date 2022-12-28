@@ -7,7 +7,7 @@ const defaultOptions: Options = {
   mode: 'development',
 }
 
-export default function bochi(opts = defaultOptions) {
+export default function bocchi(opts = defaultOptions) {
   process.env.NODE_ENV = opts.mode
 
   const isDev = process.env.NODE_ENV === 'development'

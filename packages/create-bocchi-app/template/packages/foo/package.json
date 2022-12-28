@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "userscript",
   "scripts": {
-    "dev": "bochi dev",
-    "build": "bochi build"
+    "dev": "bocchi dev",
+    "build": "bocchi build"
   }
 }

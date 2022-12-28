@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import yargs from 'yargs'
-import bochi from './index'
+import bocchi from './index'
 
 yargs(process.argv.slice(2))
   .usage('A cli build tool for userscript')
@@ -11,12 +11,12 @@ yargs(process.argv.slice(2))
     'dev',
     'build development file with watch mode',
     () => {},
-    () => bochi({ mode: 'development' })
+    () => bocchi({ mode: 'development' })
   )
   .command(
     'build',
     'build production file',
     () => {},
-    () => bochi({ mode: 'production' })
+    () => bocchi({ mode: 'production' })
   )
   .alias({ v: 'version', h: 'help' }).argv

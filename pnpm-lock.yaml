@@ -31,7 +31,7 @@ importers:
       tsup: 6.5.0_2dtigtkb225m7ii7q45utxqwgi
       typescript: 4.9.3
 
-  packages/bochi:
+  packages/bocchi:
     specifiers:
       '@ironkinoko/rollup-plugin-styles': ^4.0.3
       '@rollup/plugin-commonjs': ^23.0.2
@@ -68,7 +68,7 @@ importers:
       '@types/fs-extra': 9.0.13
       '@types/yargs': 17.0.13
 
-  packages/create-bochi:
+  packages/create-bocchi-app:
     specifiers:
       '@types/node': ^18.11.9
     devDependencies:
@@ -5467,6 +5467,7 @@ packages:
       {
         integrity: sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==,
       }
+    deprecated: Please use @jridgewell/sourcemap-codec instead
     dev: false
 
   /split-on-first/1.1.0:

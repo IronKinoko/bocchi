@@ -1,5 +1,5 @@
 {
-  "name": "bochi",
+  "name": "bocchi",
   "private": true,
   "description": "A cli build tool for userscript",
   "version": "1.0.0",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/IronKinoko/bochi.git"
+    "url": "git+https://github.com/IronKinoko/bocchi.git"
   },
   "keywords": [],
   "author": "IronKinoko <kinoko_main@outlook.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/IronKinoko/bochi/issues"
+    "url": "https://github.com/IronKinoko/bocchi/issues"
   },
-  "homepage": "https://github.com/IronKinoko/bochi#readme",
+  "homepage": "https://github.com/IronKinoko/bocchi#readme",
   "devDependencies": {
     "@types/jest": "^29.2.4",
     "@types/node": "^18.11.9",

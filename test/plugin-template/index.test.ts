@@ -1,4 +1,4 @@
-import { parseHTML } from '../../packages/bochi/src/plugins/template'
+import { parseHTML } from '../../packages/bocchi/src/plugins/template'
 
 it('should parse HTML to Object', () => {
   const code = `
