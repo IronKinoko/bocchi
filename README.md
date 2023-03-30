@@ -1,1 +1,1 @@
-./packages/bochi/README.md
+packages/bocchi/README.md
