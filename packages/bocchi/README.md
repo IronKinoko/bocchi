@@ -75,6 +75,7 @@ pnpm create bocchi-app <name>
 2. support `[name].template.html`
 
 ```html
+<!-- file: [name].template.html -->
 <template id="tmpId">
   <span>1</span>
 </template>
@@ -83,8 +84,9 @@ pnpm create bocchi-app <name>
 ```
 
 ```js
+// file: index.js
 import tmp from './[name].template.html'
 
-console.log(tmp.tmpId) //=> <template id="tmpId">\n  <span>1</span>n/template>
+console.log(tmp.tmpId) //=> <template id="tmpId">\n  <span>1</span>\n</template>
 console.log(tmp.anchorId) //=> <a id="anchorId"></a>
 ```
