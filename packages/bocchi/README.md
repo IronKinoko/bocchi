@@ -59,3 +59,32 @@ pnpm create bocchi-app <name>
 ```
 
 4. `npm run dev` for development, `npm run build` for bundle production
+
+## Feature
+
+1. `package.json` support rollup globals
+
+```json
+{
+  "globals": {
+    "lodash": "window._"
+  }
+}
+```
+
+2. support `[name].template.html`
+
+```html
+<template id="tmpId">
+  <span>1</span>
+</template>
+
+<a id="anchorId"></a>
+```
+
+```js
+import tmp from './[name].template.html'
+
+console.log(tmp.tmpId) //=> <template id="tmpId">\n  <span>1</span>n/template>
+console.log(tmp.anchorId) //=> <a id="anchorId"></a>
+```
