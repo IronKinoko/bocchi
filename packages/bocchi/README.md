@@ -62,7 +62,7 @@ pnpm create bocchi-app <name>
 
 ## Feature
 
-1. `package.json` support rollup globals
+1. `package.json` support rollup `globals`
 
 ```json
 {
@@ -90,3 +90,5 @@ import tmp from './[name].template.html'
 console.log(tmp.tmpId) //=> <template id="tmpId">\n  <span>1</span>\n</template>
 console.log(tmp.anchorId) //=> <a id="anchorId"></a>
 ```
+
+3. auto load `postcss.config.js`
