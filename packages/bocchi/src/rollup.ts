@@ -98,7 +98,7 @@ export function watch() {
           chalk.cyan(
             `bundles ${chalk.bold(relativeId(input))} → ${chalk.bold(
               e.output.map(relativeId).join(', ')
-            )}...`
+            )} ...`
           )
         )
         break
