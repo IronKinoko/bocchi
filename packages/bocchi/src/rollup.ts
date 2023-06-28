@@ -8,6 +8,7 @@ import { createRequire } from 'module'
 import prettyMilliseconds from 'pretty-ms'
 import * as rollup from 'rollup'
 import esbuild from 'rollup-plugin-esbuild'
+import slash from 'slash'
 import { paths } from './paths'
 import { template } from './plugins/template'
 import { userscript } from './plugins/userscript'
@@ -45,7 +46,7 @@ function dateTime() {
 }
 
 function relativeId(source: string) {
-  return source.replace(paths.root + '/', '')
+  return slash(source).replace(slash(paths.root) + '/', '')
 }
 
 function handleError(error: rollup.RollupError) {
