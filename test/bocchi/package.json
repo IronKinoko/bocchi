@@ -2,9 +2,8 @@
   "name": "test-app",
   "version": "1.0.0",
   "scripts": {
-    "dev": "esno watch ../../packages/bocchi/src/cli.ts dev",
-    "test:dist": "node ../../packages/bocchi/dist/cli.js dev",
-    "build": "esno ../../packages/bocchi/src/cli.ts build"
+    "dev": "nodemon -w ../../packages/bocchi -x 'node --loader @esbuild-kit/esm-loader' ../../packages/bocchi/src/cli.ts dev",
+    "build": "node --loader @esbuild-kit/esm-loader ../../packages/bocchi/src/cli.ts build"
   },
   "globals": {
     "xs": "xx"
