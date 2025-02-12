@@ -12,6 +12,7 @@ import slash from 'slash'
 import { paths } from './paths'
 import { template } from './plugins/template'
 import { userscript } from './plugins/userscript'
+import copy from 'rollup-plugin-copy'
 
 function createRollupConfig() {
   const pkg = fs.readJsonSync(paths.package)
@@ -24,6 +25,7 @@ function createRollupConfig() {
       styles({ sass: { impl: require.resolve('sass') } }),
       image(),
       template(),
+      copy({ targets: [{ src: paths.public + '/*', dest: paths.dist }] }),
       esbuild({
         target: 'es2017',
         define: {
@@ -86,6 +88,7 @@ export function watch() {
     switch (e.code) {
       case 'START':
         console.clear()
+        fs.removeSync(paths.dist)
         break
       case 'BUNDLE_START':
         let input = e.input!
@@ -135,6 +138,7 @@ export async function build() {
   )
 
   try {
+    await fs.remove(paths.dist)
     const start = Date.now()
     const bundle = await rollup.rollup(config)
 

@@ -1,7 +1,7 @@
 {
   "name": "bocchi",
   "description": "A cli build tool for userscript",
-  "version": "1.1.4",
+  "version": "1.2.0",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -52,6 +52,7 @@
     "node-html-parser": "^6.1.4",
     "pretty-ms": "^8.0.0",
     "rollup": "^3.3.0",
+    "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-esbuild": "^5.0.0",
     "sass": "^1.56.1",
     "slash": "^5.1.0",

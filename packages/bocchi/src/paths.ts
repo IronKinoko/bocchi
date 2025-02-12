@@ -20,6 +20,8 @@ export const paths = {
   root: resolveApp(),
   meta: resolveApp('meta.template'),
   package: resolveApp('package.json'),
+  public: resolveApp('public'),
+  dist: resolveApp('dist'),
   input: resolveInput(),
   output: resolveApp('dist', 'index.user.js'),
   outputDev: resolveApp('dist', 'index.dev.js'),
