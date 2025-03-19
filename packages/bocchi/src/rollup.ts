@@ -25,7 +25,9 @@ function createRollupConfig() {
       styles({ sass: { impl: require.resolve('sass') } }),
       image(),
       template(),
-      copy({ targets: [{ src: paths.public + '/*', dest: paths.dist }] }),
+      copy({
+        targets: [{ src: paths.resolveApp('public/*'), dest: paths.dist }],
+      }),
       esbuild({
         target: 'es2017',
         define: {

@@ -1,8 +1,9 @@
 import path from 'path'
 import fs from 'fs-extra'
+import slash from 'slash'
 
 function resolveApp(...rest: string[]) {
-  return path.resolve(process.cwd(), ...rest)
+  return slash(path.resolve(process.cwd(), ...rest))
 }
 
 function resolveInput() {
@@ -11,7 +12,7 @@ function resolveInput() {
     .map((extension) => base + extension)
     .find((file) => fs.existsSync(file))
 
-  if (!index) throw new Error('ensure src/index exists')
+  if (!index) throw new Error('ensure src/index.(j|t)s exists')
   return index
 }
 

@@ -2,7 +2,7 @@
   "name": "test-app",
   "version": "1.0.0",
   "scripts": {
-    "dev": "nodemon -w ../../packages/bocchi -x 'node --loader @esbuild-kit/esm-loader' ../../packages/bocchi/src/cli.ts dev",
+    "dev": "nodemon -w ../../packages/bocchi -x \"node --loader @esbuild-kit/esm-loader\" ../../packages/bocchi/src/cli.ts dev",
     "build": "node --loader @esbuild-kit/esm-loader ../../packages/bocchi/src/cli.ts build"
   },
   "globals": {
