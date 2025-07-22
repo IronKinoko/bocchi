@@ -36,3 +36,8 @@ declare module '*.template.html' {
   const templateHTML: Record<string, string>
   export default templateHTML
 }
+
+declare module '*?raw' {
+  const content: string
+  export default content
+}

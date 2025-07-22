@@ -12,6 +12,7 @@ import slash from 'slash'
 import { paths } from './paths'
 import { template } from './plugins/template'
 import { userscript } from './plugins/userscript'
+import { raw } from './plugins/raw'
 import copy from 'rollup-plugin-copy'
 
 function createRollupConfig() {
@@ -22,6 +23,7 @@ function createRollupConfig() {
     input: paths.input,
     output: { file: paths.output, format: 'iife' },
     plugins: [
+      raw(),
       styles({ sass: { impl: require.resolve('sass') } }),
       image(),
       template(),
