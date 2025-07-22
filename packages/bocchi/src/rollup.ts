@@ -30,6 +30,8 @@ function createRollupConfig() {
       copy({
         targets: [{ src: paths.resolveApp('public/*'), dest: paths.dist }],
       }),
+      nodeResolve({ browser: true }),
+      commonjs(),
       esbuild({
         target: 'es2017',
         define: {
@@ -38,8 +40,6 @@ function createRollupConfig() {
           'process.env.APP_VERSION': JSON.stringify(pkg.version),
         },
       }),
-      commonjs(),
-      nodeResolve({ browser: true }),
       userscript(),
     ],
   })
