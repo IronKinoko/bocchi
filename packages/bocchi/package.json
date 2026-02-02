@@ -42,24 +42,24 @@
   "homepage": "https://github.com/IronKinoko/bocchi#readme",
   "dependencies": {
     "@ironkinoko/rollup-plugin-styles": "^4.0.4",
-    "@rollup/plugin-commonjs": "^23.0.2",
-    "@rollup/plugin-image": "^3.0.1",
-    "@rollup/plugin-node-resolve": "^15.0.1",
-    "@types/node": "^18.11.9",
-    "chalk": "^5.1.2",
-    "esbuild": "^0.15.15",
-    "fs-extra": "^10.1.0",
-    "node-html-parser": "^6.1.4",
-    "pretty-ms": "^8.0.0",
-    "rollup": "^3.3.0",
+    "@rollup/plugin-commonjs": "^29.0.0",
+    "@rollup/plugin-image": "^3.0.3",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@types/node": "^25.2.0",
+    "chalk": "^5.6.2",
+    "esbuild": "^0.27.2",
+    "fs-extra": "^11.3.3",
+    "node-html-parser": "^7.0.2",
+    "pretty-ms": "^9.3.0",
+    "rollup": "^4.57.1",
     "rollup-plugin-copy": "^3.5.0",
-    "rollup-plugin-esbuild": "^5.0.0",
-    "sass": "^1.56.1",
+    "rollup-plugin-esbuild": "^6.2.1",
+    "sass": "^1.97.3",
     "slash": "^5.1.0",
-    "yargs": "^17.6.2"
+    "yargs": "^18.0.0"
   },
   "devDependencies": {
-    "@types/fs-extra": "^9.0.13",
-    "@types/yargs": "^17.0.13"
+    "@types/fs-extra": "^11.0.4",
+    "@types/yargs": "^17.0.35"
   }
 }

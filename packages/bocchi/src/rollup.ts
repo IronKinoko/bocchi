@@ -24,7 +24,7 @@ function createRollupConfig() {
     output: { file: paths.output, format: 'iife' },
     plugins: [
       raw(),
-      styles({ sass: { impl: require.resolve('sass') } }),
+      styles({ sass: { impl: require.resolve('sass'), silenceDeprecations: ['legacy-js-api'], } }),
       image(),
       template(),
       copy({
@@ -56,7 +56,7 @@ function relativeId(source: string) {
 }
 
 function handleError(error: rollup.RollupError) {
-  const name = error.name || error.cause?.name
+  const name = error.name || (error.cause as any)?.name
   const nameSection = name ? `${name}: ` : ''
   const pluginSection = error.plugin ? `(plugin ${error.plugin}) ` : ''
   const message = `${pluginSection}${nameSection}${error.message}`
