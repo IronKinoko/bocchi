@@ -1,44 +1,35 @@
-import styles from '@ironkinoko/rollup-plugin-styles'
-import commonjs from '@rollup/plugin-commonjs'
-import image from '@rollup/plugin-image'
-import nodeResolve from '@rollup/plugin-node-resolve'
 import chalk from 'chalk'
 import fs from 'fs-extra'
-import { createRequire } from 'module'
 import prettyMilliseconds from 'pretty-ms'
-import * as rollup from 'rollup'
-import esbuild from 'rollup-plugin-esbuild'
+import * as rolldown from 'rolldown'
+import copy from 'rollup-plugin-copy'
 import slash from 'slash'
 import { paths } from './paths'
+import { raw } from './plugins/raw'
+import { sassPlugin } from './plugins/sass'
 import { template } from './plugins/template'
 import { userscript } from './plugins/userscript'
-import { raw } from './plugins/raw'
-import copy from 'rollup-plugin-copy'
 
 function createRollupConfig() {
   const pkg = fs.readJsonSync(paths.package)
 
-  const require = createRequire(import.meta.url)
-  return rollup.defineConfig({
+  return rolldown.defineConfig({
     input: paths.input,
     output: { file: paths.output, format: 'iife' },
+    transform: {
+      target: 'es2017',
+      define: {
+        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+        'process.env.APP_NAME': JSON.stringify(pkg.name),
+        'process.env.APP_VERSION': JSON.stringify(pkg.version),
+      },
+    },
     plugins: [
       raw(),
-      styles({ sass: { impl: require.resolve('sass'), silenceDeprecations: ['legacy-js-api'], } }),
-      image(),
+      sassPlugin(),
       template(),
       copy({
         targets: [{ src: paths.resolveApp('public/*'), dest: paths.dist }],
-      }),
-      nodeResolve({ browser: true }),
-      commonjs(),
-      esbuild({
-        target: 'es2017',
-        define: {
-          'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-          'process.env.APP_NAME': JSON.stringify(pkg.name),
-          'process.env.APP_VERSION': JSON.stringify(pkg.version),
-        },
       }),
       userscript(),
     ],
@@ -52,10 +43,10 @@ function dateTime() {
 }
 
 function relativeId(source: string) {
-  return slash(source).replace(slash(paths.root) + '/', '')
+  return slash(source).replace(`${slash(paths.root)}/`, '')
 }
 
-function handleError(error: rollup.RollupError) {
+function handleError(error: rolldown.RollupError) {
   const name = error.name || (error.cause as any)?.name
   const nameSection = name ? `${name}: ` : ''
   const pluginSection = error.plugin ? `(plugin ${error.plugin}) ` : ''
@@ -86,7 +77,7 @@ function handleError(error: rollup.RollupError) {
 export function watch() {
   const config = createRollupConfig()
 
-  const watcher = rollup.watch(config)
+  const watcher = rolldown.watch(config)
 
   watcher.on('event', (e) => {
     switch (e.code) {
@@ -95,17 +86,11 @@ export function watch() {
         fs.removeSync(paths.dist)
         break
       case 'BUNDLE_START':
-        let input = e.input!
-        if (typeof input !== 'string') {
-          input = Array.isArray(input)
-            ? input.join(', ')
-            : Object.values(input).join(', ')
-        }
         console.log(
           chalk.cyan(
-            `bundles ${chalk.bold(relativeId(input))} → ${chalk.bold(
-              e.output.map(relativeId).join(', ')
-            )} ...`
+            `bundles ${chalk.bold(relativeId(paths.input))} → ${chalk.bold(
+              relativeId(paths.output)
+            )}...`
           )
         )
         break
@@ -144,7 +129,7 @@ export async function build() {
   try {
     await fs.remove(paths.dist)
     const start = Date.now()
-    const bundle = await rollup.rollup(config)
+    const bundle = await rolldown.rolldown(config)
 
     console.log(
       chalk.green(
@@ -157,6 +142,6 @@ export async function build() {
     await bundle.write(config.output as any)
     await bundle.close()
   } catch (error) {
-    handleError(error as rollup.RollupError)
+    handleError(error as rolldown.RollupError)
   }
 }

@@ -32,7 +32,7 @@ pnpm create bocchi-app <name>
 
 1. 在 `package.json` 同级目录创建 `meta.template`
 
-```
+```js
 // ==UserScript==
 // @name
 // @namespace    #homepage#
@@ -115,8 +115,8 @@ npm i jszip
 // 文件: index.js
 import tmp from './hello.template.html'
 
-console.log(tmp.tmpId) //=> <template id="tmpId">\n  <span>1</span>\n</template>
-console.log(tmp.anchorId) //=> <a id="anchorId"></a>
+console.log(tmp.tmpId) // => <template id="tmpId">\n  <span>1</span>\n</template>
+console.log(tmp.anchorId) // => <a id="anchorId"></a>
 ```
 
 3. 自动加载 `postcss.config.js`

@@ -1,40 +1,33 @@
 {
-  "name": "bocchi",
+  "name": "root",
   "private": true,
   "description": "A cli build tool for userscript",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "prettier": "prettier -cw '{packages,test}/**/*.{js,ts,json,md,scss}'",
-    "test": "jest"
-  },
+  "author": "IronKinoko <kinoko_main@outlook.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/IronKinoko/bocchi#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/IronKinoko/bocchi.git"
   },
-  "keywords": [],
-  "author": "IronKinoko <kinoko_main@outlook.com>",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/IronKinoko/bocchi/issues"
   },
-  "homepage": "https://github.com/IronKinoko/bocchi#readme",
+  "scripts": {
+    "prettier": "prettier -cw '{packages,test}/**/*.{js,ts,json,md,scss}'",
+    "test": "jest"
+  },
   "devDependencies": {
-    "@esbuild-kit/esm-loader": "^2.5.5",
+    "@antfu/eslint-config": "^7.6.1",
     "@types/jest": "^30.0.0",
-    "@types/node": "^25.2.0",
+    "@types/node": "^24.0.0",
+    "eslint": "^10.0.2",
     "husky": "^9.1.7",
     "jest": "^30.2.0",
     "nodemon": "^3.1.11",
     "prettier": "^3.8.1",
     "pretty-quick": "^4.2.2",
     "ts-jest": "^29.4.6",
-    "tsup": "^8.5.1",
+    "tsdown": "^0.20.3",
     "typescript": "^5.9.3"
-  },
-  "prettier": {
-    "semi": false,
-    "singleQuote": true,
-    "trailingComma": "es5"
   }
 }

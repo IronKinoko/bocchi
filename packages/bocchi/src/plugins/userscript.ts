@@ -1,5 +1,5 @@
+import type { Plugin } from 'rolldown'
 import fs from 'fs-extra'
-import { Plugin } from 'rollup'
 import { paths } from '../paths'
 
 function resolveMeta() {
@@ -14,21 +14,18 @@ function resolveMeta() {
   return meta
 }
 
-function genDevFile(meta: string) {
+function resolveDevMeta() {
+  const meta = resolveMeta()
   const devMeta = meta
     .replace(/(@name.*)/, '$1 - Dev')
     .replace(
       /(\/\/ ==\/UserScript==.*)/,
       `// @require      file://${paths.output}\n$1`
     )
-
-  fs.ensureFileSync(paths.outputDev)
-  fs.writeFileSync(paths.outputDev, devMeta)
+  return devMeta
 }
 
-export interface UserscriptOptions {}
-
-export function userscript(opts?: UserscriptOptions): Plugin {
+export function userscript(): Plugin {
   if (!fs.existsSync(paths.meta)) throw new Error('Missing meta.template file')
 
   return {
@@ -44,16 +41,19 @@ export function userscript(opts?: UserscriptOptions): Plugin {
     outputOptions(opts) {
       const meta = resolveMeta()
       opts.banner = meta
-
       const pkg = fs.readJsonSync(paths.package)
-
       opts.globals = pkg.globals
-
-      if (process.env.NODE_ENV === 'development') {
-        genDevFile(meta)
-      }
-
       return opts
+    },
+    generateBundle() {
+      if (process.env.NODE_ENV === 'development') {
+        const devMeta = resolveDevMeta()
+        this.emitFile({
+          source: devMeta,
+          fileName: 'index.dev.js',
+          type: 'asset',
+        })
+      }
     },
   }
 }

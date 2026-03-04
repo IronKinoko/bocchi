@@ -1,4 +1,4 @@
-import { Plugin } from 'rollup'
+import type { Plugin } from 'rolldown'
 import fs from 'fs-extra'
 
 /**
@@ -7,16 +7,17 @@ import fs from 'fs-extra'
 export function raw(): Plugin {
   return {
     name: 'raw',
-    load(id) {
-      if (id.endsWith('?raw')) {
+    load: {
+      filter: { id: /\?raw$/ },
+      async handler(id) {
         const filePath = id.slice(0, -4) // Remove ?raw suffix
         this.addWatchFile(filePath)
 
         const content = fs.readFileSync(filePath, 'utf-8')
-        return `export default ${JSON.stringify(content)};`
-      }
-
-      return null
+        return {
+          code: `export default ${JSON.stringify(content)};`,
+        }
+      },
     },
   }
 }

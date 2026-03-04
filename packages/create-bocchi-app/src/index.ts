@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-import url from 'url'
-import path from 'path'
-import fs from 'fs'
+import fs from 'node:fs'
+import path from 'node:path'
+import url from 'node:url'
 
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url))
 

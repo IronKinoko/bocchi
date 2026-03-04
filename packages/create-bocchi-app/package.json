@@ -1,28 +1,19 @@
 {
   "name": "create-bocchi-app",
-  "description": "create bocchi template",
-  "version": "1.0.1",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "bin": "./dist/index.js",
   "type": "module",
-  "scripts": {
-    "build": "tsup src/index.ts --format esm --dts --clean",
-    "release": "pnpm run build && npm publish"
-  },
+  "version": "1.0.1",
+  "description": "create bocchi template",
+  "author": "IronKinoko <kinoko_main@outlook.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/IronKinoko/bocchi#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/IronKinoko/bocchi.git",
     "directory": "packages/create-bocchi-app"
   },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org/"
+  "bugs": {
+    "url": "https://github.com/IronKinoko/bocchi/issues"
   },
-  "files": [
-    "dist",
-    "template"
-  ],
   "keywords": [
     "template",
     "bocchi",
@@ -32,13 +23,22 @@
     "tampermonkey",
     "violentmonkey"
   ],
-  "author": "IronKinoko <kinoko_main@outlook.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/IronKinoko/bocchi/issues"
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": "./dist/index.js",
+  "files": [
+    "dist",
+    "template"
+  ],
+  "scripts": {
+    "build": "tsdown src/index.ts --format esm --dts --clean",
+    "release": "pnpm run build && npm publish"
   },
-  "homepage": "https://github.com/IronKinoko/bocchi#readme",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "devDependencies": {
-    "@types/node": "^25.2.0"
+    "@types/node": "^24.0.0"
   }
 }
