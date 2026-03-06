@@ -126,22 +126,29 @@ export async function build() {
     )
   )
 
+  let bundle
+  let failed = false
   try {
     await fs.remove(paths.dist)
-    const start = Date.now()
-    const bundle = await rolldown.rolldown(config)
+    const start = performance.now()
+    bundle = await rolldown.rolldown(config)
+    await bundle.write(config.output as rolldown.OutputOptions)
 
     console.log(
       chalk.green(
         `created ${chalk.bold(relativeId(paths.output))} in ${chalk.bold(
-          prettyMilliseconds(Date.now() - start)
+          prettyMilliseconds(performance.now() - start)
         )}`
       )
     )
-
-    await bundle.write(config.output as any)
-    await bundle.close()
   } catch (error) {
+    failed = true
     handleError(error as rolldown.RollupError)
+  } finally {
+    if (bundle) {
+      await bundle.close()
+    }
+
+    process.exitCode = failed ? 1 : 0
   }
 }
