@@ -1,7 +1,7 @@
 {
   "name": "create-bocchi-app",
   "type": "module",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "create bocchi template",
   "author": "IronKinoko <kinoko_main@outlook.com>",
   "license": "MIT",

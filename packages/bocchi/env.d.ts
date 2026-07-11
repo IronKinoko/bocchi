@@ -1,12 +1,19 @@
-/// <reference types="node" />
-
 declare namespace NodeJS {
+  interface Process {
+    env: ProcessEnv
+  }
+
   interface ProcessEnv {
     NODE_ENV: 'development' | 'production'
     APP_NAME: string
     APP_VERSION: string
   }
 }
+
+declare const process: NodeJS.Process
+
+declare module '*.css' {}
+declare module '*.scss' {}
 
 declare module '*.gif' {
   const src: string
