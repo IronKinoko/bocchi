@@ -1,11 +1,1 @@
-git diff --cached --name-only --diff-filter=ACMR |
-while IFS= read -r file; do
-  case "$file" in
-    pnpm-lock.yaml|*.lock.yaml)
-      ;;
-    *.js|*.jsx|*.mjs|*.cjs|*.ts|*.tsx|*.mts|*.cts|*.json|*.jsonc|*.json5|*.md|*.mdx|*.css|*.scss|*.less|*.html|*.yaml|*.yml|*.toml|*.graphql|*.gql|*.vue|*.svelte|*.astro)
-      pnpm exec oxfmt --config .oxfmtrc.mts "$file" || exit 1
-      git add -- "$file" || exit 1
-      ;;
-  esac
-done
+pnpm exec lint-staged
