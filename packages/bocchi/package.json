@@ -36,7 +36,7 @@
     "watch": "tsdown src/cli.ts --format esm --dts --watch",
     "build": "tsdown src/cli.ts --format esm --dts --clean",
     "release": "pnpm run build && npm publish",
-    "lint": "oxlint --config ../../.oxlintrc.mts --fix && tsc --noEmit"
+    "lint": "oxlint --fix && tsc --noEmit"
   },
   "dependencies": {
     "chalk": "^5.6.2",
