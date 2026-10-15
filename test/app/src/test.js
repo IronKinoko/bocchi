@@ -1,4 +1,4 @@
-// eslint-disable-next-line no-unused-vars, unused-imports/no-unused-vars
+// oxlint-disable-next-line no-unused-vars
 const test = `
 scsw
 scsww

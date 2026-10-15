@@ -2,32 +2,31 @@
   "name": "root",
   "private": true,
   "description": "A cli build tool for userscript",
-  "author": "IronKinoko <kinoko_main@outlook.com>",
-  "license": "MIT",
   "homepage": "https://github.com/IronKinoko/bocchi#readme",
+  "bugs": {
+    "url": "https://github.com/IronKinoko/bocchi/issues"
+  },
+  "license": "MIT",
+  "author": "IronKinoko <kinoko_main@outlook.com>",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/IronKinoko/bocchi.git"
   },
-  "bugs": {
-    "url": "https://github.com/IronKinoko/bocchi/issues"
-  },
   "scripts": {
-    "prettier": "prettier -cw '{packages,test}/**/*.{js,ts,json,md,scss}'",
-    "test": "jest"
+    "prepare": "husky",
+    "format": "oxfmt --config .oxfmtrc.mts packages test",
+    "format:check": "oxfmt --config .oxfmtrc.mts --check packages test",
+    "test": "vitest run"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^7.6.1",
-    "@types/jest": "^30.0.0",
-    "@types/node": "^24.0.0",
-    "eslint": "^10.0.2",
+    "@types/node": "^24.19.2",
     "husky": "^9.1.7",
-    "jest": "^30.2.0",
-    "nodemon": "^3.1.11",
-    "prettier": "^3.8.1",
-    "pretty-quick": "^4.2.2",
-    "ts-jest": "^29.4.6",
-    "tsdown": "^0.20.3",
-    "typescript": "^5.9.3"
-  }
+    "nodemon": "^3.1.14",
+    "oxfmt": "^0.73.0",
+    "oxlint": "^1.88.0",
+    "tsdown": "^0.23.1",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.4"
+  },
+  "packageManager": "pnpm@12.11.2+sha512.25a51652a196785af5f28bda6dfe8dc582ebefa4ac1d180221ce1390231c5fb76637822ea4b6e4633ce74acdcb0a77f725af11bad38177fdeddaee818a955cb9"
 }

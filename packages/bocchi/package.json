@@ -1,29 +1,24 @@
 {
   "name": "bocchi",
-  "type": "module",
   "version": "2.1.0",
   "description": "A cli build tool for userscript",
-  "author": "IronKinoko <kinoko_main@outlook.com>",
-  "license": "MIT",
+  "keywords": [
+    "cli",
+    "greasemonkey",
+    "tampermonkey",
+    "userscript",
+    "violentmonkey"
+  ],
   "homepage": "https://github.com/IronKinoko/bocchi#readme",
+  "bugs": {
+    "url": "https://github.com/IronKinoko/bocchi/issues"
+  },
+  "license": "MIT",
+  "author": "IronKinoko <kinoko_main@outlook.com>",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/IronKinoko/bocchi.git",
     "directory": "packages/bocchi"
-  },
-  "bugs": {
-    "url": "https://github.com/IronKinoko/bocchi/issues"
-  },
-  "keywords": [
-    "userscript",
-    "cli",
-    "greasemonkey",
-    "tampermonkey",
-    "violentmonkey"
-  ],
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org/"
   },
   "bin": {
     "bocchi": "./dist/cli.mjs"
@@ -32,26 +27,31 @@
     "dist",
     "env.d.ts"
   ],
+  "type": "module",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "scripts": {
     "watch": "tsdown src/cli.ts --format esm --dts --watch",
     "build": "tsdown src/cli.ts --format esm --dts --clean",
     "release": "pnpm run build && npm publish",
-    "lint": "eslint --fix && tsc --noEmit"
+    "lint": "oxlint --config ../../.oxlintrc.mts --fix && tsc --noEmit"
   },
   "dependencies": {
     "chalk": "^5.6.2",
-    "fs-extra": "^11.3.3",
-    "node-html-parser": "^7.0.2",
-    "pretty-ms": "^9.3.0",
-    "rolldown": "^1.1.5",
+    "fs-extra": "^11.4.1",
+    "node-html-parser": "^7.1.0",
+    "pretty-ms": "^9.3.1",
+    "rolldown": "^1.2.14",
     "rollup-plugin-copy": "^3.5.0",
-    "sass": "^1.97.3",
+    "sass": "^1.105.1",
     "slash": "^5.1.0",
-    "yargs": "^18.0.0"
+    "yargs": "^18.2.0"
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
-    "@types/node": "^24.0.0",
+    "@types/node": "^24.19.2",
     "@types/yargs": "^17.0.35"
   }
 }

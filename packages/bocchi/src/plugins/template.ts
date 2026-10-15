@@ -9,27 +9,24 @@ function die(message: string) {
 export function parseHTML(code: string) {
   const root = HTMLParser.parse(code)
 
-  const result = root.childNodes.reduce<Record<string, HTMLElement>>(
-    (res, node) => {
-      switch (node.nodeType) {
-        case HTMLParser.NodeType.ELEMENT_NODE: {
-          const el = node as HTMLElement
-          if (!el.id) {
-            die(`<${el.rawTagName}/> need an \`id\` attribute\n  ${el}`)
-          }
-
-          if (res[el.id]) {
-            die(`Duplicate \`id\`\n  - ${res[el.id]}\n  - ${el}`)
-          }
-
-          res[el.id] = el
-          break
+  const result = root.childNodes.reduce<Record<string, HTMLElement>>((res, node) => {
+    switch (node.nodeType) {
+      case HTMLParser.NodeType.ELEMENT_NODE: {
+        const el = node as HTMLElement
+        if (!el.id) {
+          die(`<${el.rawTagName}/> need an \`id\` attribute\n  ${el}`)
         }
+
+        if (res[el.id]) {
+          die(`Duplicate \`id\`\n  - ${res[el.id]}\n  - ${el}`)
+        }
+
+        res[el.id] = el
+        break
       }
-      return res
-    },
-    {}
-  )
+    }
+    return res
+  }, {})
 
   return Object.keys(result).reduce<Record<string, string>>((res, key) => {
     const el = result[key]

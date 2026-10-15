@@ -3,7 +3,7 @@
 import yargs from 'yargs'
 import bocchi from './index'
 
-// eslint-disable-next-line ts/no-unused-expressions
+// oxlint-disable-next-line no-unused-expressions
 yargs(process.argv.slice(2))
   .usage('A cli build tool for userscript')
   .showHelpOnFail(true)

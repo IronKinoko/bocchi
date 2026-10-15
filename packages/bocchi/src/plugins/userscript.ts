@@ -18,10 +18,7 @@ function resolveDevMeta() {
   const meta = resolveMeta()
   const devMeta = meta
     .replace(/(@name.*)/, '$1 - Dev')
-    .replace(
-      /(\/\/ ==\/UserScript==.*)/,
-      `// @require      file://${paths.output}\n$1`
-    )
+    .replace(/(\/\/ ==\/UserScript==.*)/, `// @require      file://${paths.output}\n$1`)
   return devMeta
 }
 

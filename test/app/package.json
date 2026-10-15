@@ -5,10 +5,10 @@
     "dev": "nodemon -w ../../packages/bocchi  ../../packages/bocchi/dist/cli.mjs dev",
     "build": "node ../../packages/bocchi/dist/cli.mjs build"
   },
-  "globals": {
-    "xs": "xx"
-  },
   "devDependencies": {
     "bocchi": "workspace:*"
+  },
+  "globals": {
+    "xs": "xx"
   }
 }

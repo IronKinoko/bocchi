@@ -58,9 +58,7 @@ function handleError(error: rolldown.RollupError) {
   }
   if (error.loc) {
     console.log(
-      `${relativeId((error.loc.file || error.id)!)} (${error.loc.line}:${
-        error.loc.column
-      })`
+      `${relativeId((error.loc.file || error.id)!)} (${error.loc.line}:${error.loc.column})`
     )
   } else if (error.id) {
     console.log(relativeId(error.id))
@@ -120,9 +118,7 @@ export async function build() {
 
   console.log(
     chalk.cyan(
-      `bundles ${chalk.bold(relativeId(paths.input))} → ${chalk.bold(
-        relativeId(paths.output)
-      )}...`
+      `bundles ${chalk.bold(relativeId(paths.input))} → ${chalk.bold(relativeId(paths.output))}...`
     )
   )
 

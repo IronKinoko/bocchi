@@ -1,3 +1,4 @@
+import { expect, it } from 'vitest'
 import { parseHTML } from '../../packages/bocchi/src/plugins/template'
 
 it('should parse HTML to Object', () => {
@@ -45,13 +46,13 @@ it('should throw error', () => {
   `
 
   expect(() => parseHTML(code)).toThrowErrorMatchingInlineSnapshot(`
-    "[html-template-plugin] Duplicate \`id\`
+    [SyntaxError: [html-template-plugin] Duplicate \`id\`
       - <template id="id1">
         <span></span>
       </template>
       - <template id="id1">
         <span></span>
-      </template>"
+      </template>]
   `)
 
   const code2 = `
@@ -61,9 +62,9 @@ it('should throw error', () => {
   `
 
   expect(() => parseHTML(code2)).toThrowErrorMatchingInlineSnapshot(`
-    "[html-template-plugin] <code/> need an \`id\` attribute
+    [SyntaxError: [html-template-plugin] <code/> need an \`id\` attribute
       <code>
         <span></span>
-      </code>"
+      </code>]
   `)
 })
